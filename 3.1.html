@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3.1:  Adding and Removing Classes</title> 
+    <style>
+        #container{
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            flex-direction: column;
+        }
+
+        h1{
+            font-size: 2em;
+        }
+
+        table{
+            border-collapse: collapse;
+            background-color: #f3f3f3;
+        }
+
+        caption{
+            background-color: #1276bc;
+            color: white;
+            text-align: center;
+            font-weight: bold;
+            border: 1px solid black;
+            height: 20px;
+        }
+
+        tr, td, th{
+            border: 1px solid black;
+        }
+
+        td, th{
+            padding: 5px;
+        }
+
+        .over {
+            background-color: #ff8b00;
+            color: white;
+        }
+
+        .clicked {
+            background-color: #1276bc;
+            color: white;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(
+            function(){
+                $("tr").mouseover(
+                    function(event){
+                        $(this).addClass("over");
+                    }
+                ).mouseleave(
+                    function(){
+                        $(this).removeClass("over");
+                    }
+                ).click(
+                    function(){
+                        if($(this).hasClass("clicked")){
+                            $(this).removeClass("clicked");
+                        } else
+                        {
+                            $(this).removeClass("over").addClass("clicked");
+                        }
+                    }
+                );
+            }
+        );
+    </script>
+</head>
+<body>
+    <div id="container">
+    <table>
+        <caption>Choose Your Favorite Power Ballad</caption>
+        <tr>
+            <td>Journey</td><td>Faithfully</td>
+        </tr>
+        <tr>
+            <td>REO Speedwagon</td><td>Keep on Loving You</td>
+        </tr>
+        <tr>
+            <td>Mr. Mister</td><td>Kyrie</td>
+        </tr>
+        <tr>
+            <td>Cheap Trick</td><td>The Flame</td>
+        </tr>
+        <tr>
+            <td>Poison</td><td>Every Rose Has It's Thorn</td>
+        </tr>
+        <tr>
+            <td>Bon Jovi</td><td>Bed of Roses</td>
+        </tr>
+        <tr>
+            <td>Chicago</td><td>Hard Habit to Break</td>
+        </tr>
+    </table>
+    </div>
+</body>
+</html>
