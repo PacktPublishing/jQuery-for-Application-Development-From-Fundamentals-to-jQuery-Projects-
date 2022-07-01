@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4.5: Serialization</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            background-color: #ccc;
+        }
+
+        #container{
+            display: flex;
+            justify-content: center;
+        }
+        #form{
+            font-family: Arial;
+            border: 2px dotted black;
+            padding: 20px;
+            font-size: 1.5em;
+            width: 400px;
+            margin: 10px;
+            background-color: white;
+            height: 450px;
+        }
+        h1{
+            font-size: 1.25em;
+            margin: 0;
+            margin-bottom: 50px;
+            padding: 20px;
+        }
+
+        input, select{
+            font-size: 1.25em;
+            margin-bottom: 10px;
+        }
+
+        select{
+            width: 93%;
+        }
+
+        button{
+            width: 93%;
+            font-size: .85em;
+            font-weight: bold;
+            background-color:  #ff8b00;
+            height: 40px;
+        }
+        
+        p{
+            text-align: center;
+            font-size: .8em;
+        }
+    </style>
+    <script>
+        $(
+            function() {    
+                $("form").submit(function(e){  
+                    e.preventDefault();
+                    console.log($(this).serialize());
+                    let un = $("input:first").val();
+                    let pw = $("input:last").val();
+                    $("#form").fadeOut();
+                });
+
+                $("p").hide();
+                $("input").focus(function(){
+                    $(this).css("background-color", "yellow");
+                }).blur(function(){
+                    $(this).css("background-color", "white");
+                });
+
+                $("input:last").focus(function(){
+                    $("p").slideDown();
+                });
+
+                $("input:last").change(function(){
+                    let pw = $("input:last").val();
+                    if(pw.length < 8){
+                        $("p").text("Your password must be 8 characters long.").show();
+                    } else {
+                        $("p").text("");
+                    }
+                })
+            }
+        )
+    </script>
+</head>
+<body>
+    <div id="container">
+    <div id="form">
+        <h1>Sign in to your account</h1>
+        <form action="#" method="post">
+            <label for="un">Username</label><br/>
+            <input type="text" id="un" name="un"/><br/>
+            <label for="pw">Password</label><br/>
+            <input type="password" id="pw" name="pw"/><br/>
+            <select id="country" name="country">
+                <option id="usa">USA</option>
+                <option id="canada">Canada</option>
+                <option id="mexico">Mexico</option>
+                <option id="other">Other</option>
+            </select>
+                <p>Always keep your password secret.</p>
+            <button>Log In</button>
+        </form>
+    </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>1.7: Complex Selectors</title>
+    <script>
+        $(
+            function(){
+               // $("*").remove();
+               //$("div p").hide();
+              // $("div > p").hide();
+              //$("[status='selected']").hide();
+              $("[status]").hide();
+            }
+        );
+    </script>
+    <style>
+        div{
+            height: 200px;
+            width: 200px;
+            background-color: black;
+            margin-bottom: 10px;
+            color: white;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="boxA">
+            <output><p class="main">This is Box A.</p></output>
+    </div>
+    <div id="boxB">
+        <p status="selected">This is Box B.</p>
+        <p>Enjoy!</p>
+    </div>
+    <div id="boxC">
+        <p status>This is Box C.</p>
+        <p>Enjoy!</p>
+    </div>
+</body>
+</html>

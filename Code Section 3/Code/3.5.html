@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3.5: Working with Element Content</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        #container {
+            width: 40%;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: .8em;
+            border: 1px dotted black;
+            padding: 15px;
+        }
+
+        #container textarea {
+            width: 100%;
+            height: 100px;
+        }
+    </style>
+    <script>
+        $(
+            function(){
+                console.log($("#container").html());
+                $("#thoughts").keypress(function(){
+                    let text = $("#thoughts").val();
+                    console.log(text);
+                    $("#container p:first").text(text);
+                })
+            }
+        );
+    </script>
+</head>
+<body>
+    <div id="container">
+        <h1>Lorem ipsum dolor sit amet</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in fermentum libero. Vestibulum congue risus id orci ullamcorper euismod tincidunt convallis leo. Pellentesque sed orci viverra, consequat mi a, venenatis lorem. Duis in enim eget enim pharetra luctus. In elementum ligula vel purus tincidunt, vel porta nunc commodo. Integer dictum metus urna, id porttitor justo tempor a. Sed tempus urna eget nisi fermentum pharetra. Aenean sed arcu in lectus pharetra tempor sed non quam. Etiam lorem odio, suscipit a ullamcorper et, luctus vel nisl. Fusce fermentum vitae diam id interdum.</p>
+
+        <p>Vivamus sit amet urna nec nulla laoreet laoreet ac sit amet nisl. Nam velit libero, euismod non erat ac, blandit tristique sapien. Pellentesque mattis, libero eget aliquet blandit, augue erat laoreet tellus, id pharetra erat nisl ut dui. Praesent ut ante quis lacus mollis feugiat. Vestibulum tincidunt nec lacus nec malesuada. Ut finibus justo eros, sit amet iaculis nisi tincidunt nec. Mauris sit amet cursus augue, nec congue mauris. Suspendisse a luctus est, sit amet placerat enim. Proin et finibus orci, et vestibulum urna. Praesent tincidunt consectetur congue. Nunc egestas molestie nibh, nec porta nibh venenatis non.</p>
+        <h2>What Do You Think?</h2>
+        <textarea id="thoughts"></textarea>
+    </div>
+</body>
+</html>

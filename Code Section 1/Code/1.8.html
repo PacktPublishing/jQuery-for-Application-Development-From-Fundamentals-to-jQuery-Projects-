@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>1.8: Ordinal Selectors</title>
+    <script>
+        $(
+            function(){
+               // $("div:first").hide();
+               // $("div:last").hide();
+               $("div:nth-child(3)").hide();
+            }
+        );
+    </script>
+    <style>
+        div{
+            height: 200px;
+            width: 200px;
+            background-color: black;
+            margin-bottom: 10px;
+            color: white;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="boxA">
+        <p>This is Box A.</p>
+    </div>
+    <div id="boxB">
+        <p>This is Box B.</p>
+    </div>
+    <div id="boxC">
+        <p>This is Box C.</p>
+    </div>
+</body>
+</html>

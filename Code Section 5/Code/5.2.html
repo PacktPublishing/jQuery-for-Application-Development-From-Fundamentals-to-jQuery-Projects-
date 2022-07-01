@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5.2: Mouse Events</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        #field{
+            width: 500px;
+            height: 500px;
+            background-color: #ff8b00;
+        }
+    </style>
+    <script>
+        let track = false;
+        $(function(){
+            $("#field").mouseenter(function(){
+                track = true;
+                $("#out").html("Last Event: Mouse Enter");
+            }).mouseleave(function(){
+                $("#out").html("Last Event: Mouse Leave");
+                track= false;
+            });
+
+            $("body").mousemove(function(e){
+                if(track){
+                    $("#pos").html("Position: " + e.pageX + ", " + e.pageY);
+                }
+            })
+
+        });
+    </script>
+</head>
+<body>
+    <div id="container">
+        <div id="field"></div>
+        <output id="out"></output><br/>
+        <output id="pos"></output>
+    </div>
+</body>
+</html>

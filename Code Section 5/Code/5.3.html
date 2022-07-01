@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5.3: Browser Events</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+       #container{
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+    <script>
+        $(window).resize(function() {
+            if(this.resizeTO) clearTimeout(this.resizeTO);
+            this.resizeTO = setTimeout(function() {
+            $(this).trigger('resizeEnd');
+            }, 500);
+        });
+
+        $( function(){
+            $(window).resize(function(){
+            $("#westport").fadeOut();
+            });
+
+            $(window).bind("resizeEnd", function(){
+                $("#westport").fadeIn();
+            })
+
+        });
+
+        
+    </script>
+</head>
+<body>
+    <div id="container">
+        <img src="westport.png" id="westport" alt="Westport, Connecticut"/>
+    </div>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3.2: Inserting and Appending Content</title>
+    <style>
+        #container{
+            display: flex;
+        }
+
+        .idCard {
+            width: 325px;
+            border: 1px solid black;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: center;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            box-shadow: 2px 2px 2px #888;  
+            margin: 20px;          
+        }
+
+        .idCard .picture{
+            width: 50%;
+            border: 1px solid black;
+        }
+
+        .idCard .qr {
+            width: 50%;
+        }
+
+        .office {
+            font-size: 1.25em;
+            font-weight: bold;
+        }
+
+        h3, h6{
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(  function(){
+            $(".picture").one ("click", function()  {
+                $(this).before("<h2>Framework Television</h2>");
+            });
+
+            $(".qr").one("click", function(){
+                $(this).after("<p>www.frameworktv.com</p>");
+            });
+
+            $("h1").one("click", function(){
+                $(this).prepend("<h3>Staff ID</h3>");
+                $(this).append("<h6>Employee</h6>");
+            });
+
+            $(".idCard p").click( function(){
+                if($(this).text() == "1000 Lafayette Blvd"){
+                    $(this).text("Bridgeport, CT");
+                } else {
+                    $(this).text("1000 Lafayette Blvd");
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="container">
+        <div class="idCard">
+            <h1>Mark Lassoff</h1>
+            <img src="mark.png" alt="Mark Lassoff" class="picture" />
+            <p class="office">1000 Lafayette Blvd</p>
+            <img src="code.png" class="qr"/>
+        </div>
+        <div class="idCard">
+            <h1>Julia Jackson</h1>
+            <img src="julia.png" alt="Mark Lassoff" class="picture" />
+            <p class="office">1000 Lafayette Blvd</p>
+            <img src="code.png" class="qr"/>
+        </div>
+    </div>
+</body>
+</html>

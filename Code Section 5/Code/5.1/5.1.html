@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5.1: Click and Double Click</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        img{
+            width: 225px;
+        }
+
+        #container{
+            display: flex;
+            justify-content: center;
+            
+        }
+    </style>
+    <script>
+        $(function(){
+            const sndDrum = new Audio("snare.wav");
+            const sndCymbal = new Audio("cymbal.wav");
+            const sndBass = new Audio("bass.wav");
+            $("#drum").click(function(){
+                sndDrum.play();
+            });
+
+            $("#cymbal").on("click", function(){
+                sndCymbal.play();
+            });
+
+            $("#bass").dblclick(function(){
+                sndBass.play();
+            })
+        });
+    </script>
+</head>
+<body>
+    <div id="container">
+        <img id="drum" src="drum.jpg">
+        <img id="cymbal" src="cymbal.jpg">
+        <img id="bass" src="bass_drum.jpg">
+    </div>
+</body>
+</html>

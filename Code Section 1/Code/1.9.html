@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>1.9: More Pseudoselectors</title>
+    <script>
+        $(
+            function(){
+                $("div:odd").css("background-color", "black");
+                $("div:even").css("background-color", "purple");
+                $("div:last-of-type, div:first-of-type").css("background-color", "yellow");
+              //  $("div:first-of-type").css("background-color", "yellow");
+            }
+        );
+    </script>
+    <style>
+        div{
+            height: 100px;
+            width: 300px;
+            background-color: orange;
+            margin-bottom: 10px;
+            color: white;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="boxA">
+        <p>This is Box A.</p>
+    </div>
+    <div id="boxB">
+        <p>This is Box B.</p>
+    </div>
+    <div id="boxC">
+        <p>This is Box C.</p>
+    </div>
+    <div id="boxD">
+        <p>This is Box D.</p>
+    </div>
+    <div id="boxE">
+        <p>This is Box E.</p>
+    </div>
+    <div id="boxF">
+        <p>This is Box F.</p>
+    </div>
+</body>
+</html>

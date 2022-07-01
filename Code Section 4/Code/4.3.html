@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4.3: Select Event Event</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="jquery.selection.js"></script>
+    <style>
+        #container {
+            display: flex;
+            justify-content: center;;
+        }
+
+        form{
+            border: 1px solid black;
+            padding: 20px;
+            width: 400px;
+            font-family: Arial, Helvetica, sans-serif;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        button{
+            width: 100%;
+            height: 30px;
+            font-weight: bold;
+            background-color: #ff8b00;
+            color: white;
+            border: 0px;
+            margin-top: 10px;
+        }
+
+        textarea {
+            width: 95%;
+            height: 200px;
+            background-color: #fafafa;
+            border-radius: 10px;
+            padding: 10px;
+            font-size: 1.2em;
+        }
+    </style>
+    <script>
+        $(
+            function(){
+                $("textarea").select(function(){
+                    console.log("You selected something!");
+                    $("#selected").text($("textarea").selection());
+                });
+            }
+        );
+    </script>
+</head>
+<body>
+    <div id="container">
+    <div id="form">
+        <form action="#">
+            <h1>Tell Your Life Story...</h1>
+            <textarea id="story"></textarea><br/>
+            <p id="selected"></p>
+            <button>Save</button>
+        </form>
+    </div>
+    </div>
+</body>
+</html>

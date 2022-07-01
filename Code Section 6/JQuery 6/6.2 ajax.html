@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6.2: Weather</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        #city, #btnGetWeather, #out{
+            font-size: 1.5em;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #btnGetWeather, #out{
+            margin-top: 10px;
+        }
+
+        #out{
+            background-color: #f2f2f2;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    
+    <label for="city">City</label>
+    <input type="text" id="city"/><br/>
+    <button id="btnGetWeather">Get The Weather</button>
+    <div id="out"></div>
+    <script>
+        $("#btnGetWeather").click(function(){
+            
+        let city = $("#city").val();
+        let url = "https://community-open-weather-map.p.rapidapi.com/weather?q=";
+        url += city + "&units=imperial";
+        const settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": url,
+            "method": "GET",
+            "headers": {
+                "x-rapidapi-key": "8deebb602cmsh772b33abf458eefp1ad0b2jsncb45c8611cd2",
+                "x-rapidapi-host": "community-open-weather-map.p.rapidapi.com"
+            }
+        };
+
+        $.ajax(settings).done(function (response) {
+            console.log(response);
+            let out = "Temperature: " + response.main.temp + "F";
+            out += "<br/> Feels like: "  + response.main.feels_like + "F";
+            out += "<br/> High Today: " + response.main.temp_max + "F";
+            out += "<br/> Low Today: " + response.main.temp_mix + "F";
+            out += "<br/>" + response.weather[0].description;
+            out += "<br/> Winds: " + response.wind.speed + "MPH at" + response.wind.deg + " degrees.";
+            $("#out").html(out);
+        });
+        
+    });
+    </script>
+</body>
+</html>

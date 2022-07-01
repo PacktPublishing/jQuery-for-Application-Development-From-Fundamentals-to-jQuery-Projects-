@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2.3: Hide Versus Remove</title>
+    <style>
+        #effectsTarget{
+            background-color: #2175bc;
+            height: 300px;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        button {
+            height: 40px;
+            width: 100%;
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+    $(function(){
+        let divVisible = true;
+        //Hide Effect
+        $("#btnEffectHide").click(function(){
+            if(divVisible==true){
+                $("#effectsTarget").hide();
+                divVisible = !divVisible;
+            } else
+            {
+                $("#effectsTarget").show();
+                divVisible = !divVisible;
+            }
+        });
+
+        //Remove Effect
+        $("#btnEffectRemove").click(function(){
+            $("#effectsTarget").remove();         
+        });
+    });
+
+    </script>
+</head>
+<body>
+    <div id="effectsTarget"></div>
+    <button id="btnEffectHide">Hide/Show</button>
+    <button id="btnEffectRemove">Remove</button>
+</body>
+</html>

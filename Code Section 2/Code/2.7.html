@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2.5: Animation</title>
+    <style>
+        #container{
+            width: 500px;
+            height: 500px;
+            border: 1px dotted black;
+            background-image: url("space.png");        
+            
+            }
+        #ship{
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            top: 225px;
+            left: 225px;
+        }
+        #shipData{
+            font-size: .75em;
+            margin-bottom: 20px;
+            text-align: center;
+            width: 500px;
+        }
+        button{
+            display: block;
+            width: 500px;
+            height: 30px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $( function(){
+            $("body").click(function(event){
+                let target = event.target.id;
+                switch(target){
+                    case("btnUp"):
+                       $("#ship").animate({
+                            top: "-=50",
+                            opacity: "-=.2" 
+                       }, 1000, position);
+                       $("#ship").css("transform", "rotate(0deg)");
+                       break;
+                    case("btnDown"):
+                       $("#ship").animate({
+                            top: "+=50" ,
+                            opacity: "+=.2"
+                       }, 1000, position);
+                       $("#ship").css("transform", "rotate(180deg)");
+                       break;
+                    case("btnLeft"):
+                       $("#ship").animate({
+                            left: "+=50" 
+                       }, 1000, position);
+                       $("#ship").css("transform", "rotate(90deg)");
+                       break;
+                    case("btnRight"):
+                       $("#ship").animate({
+                            left: "-=50" 
+                       }, 1000, position);
+                       $("#ship").css("transform", "rotate(270deg)");
+                       break;
+                }
+            });
+
+        });
+
+        function position(){
+            //Animation Complete Callback
+            let out = "X: " + $("#ship").css("top");
+            out += " Y: " + $("#ship").css("left");
+            $("#shipData").html(out);           }
+    </script>
+</head>
+<body>
+<div id="container">
+    <img src="ship.png" id="ship" />    
+</div>
+<div id="shipData"></div>
+<button id="btnUp">Up</button>
+<button id="btnDown">Down</button>
+<button id="btnLeft">Left</button>
+<button id="btnRight">Right</button>
+</body>
+</html>

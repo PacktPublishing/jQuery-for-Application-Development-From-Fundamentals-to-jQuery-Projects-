@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2.4: Slide Up/Slide Down</title>
+    <style>
+        div p{
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 1.2em;
+        }
+
+        h1 {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #2175bc;
+        }
+
+        #divA, #divB, #divC{
+            width: 50%;
+            border: 1px solid black;
+            background-color: #eee;
+            padding: 20px;
+            border-radius: 15px;
+
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(
+            function(){
+                let pA = false;
+                let pB = false;
+                let pC = false;
+                $("p").hide();
+
+                $("body").click(function(event){
+                    target = event.target.id;
+                    switch(target){
+                        case("h1A"):
+                            if(pA == false){
+                                $("#pA").slideDown(3000);
+                                pA = !pA;
+                            } else {
+                                $("#pA").slideUp(3000);
+                                pA = !pA;
+                            }
+                            break;
+                        case("h1B"):
+                            if(pB == false){
+                                $("#pB").slideDown();
+                                pB = !pB;
+                            } else {
+                                $("#pB").slideUp();
+                                pB = !pB;
+                            }
+                            break;
+                        case("h1C"):
+                            if(pC == false){
+                                $("#pC").slideDown();
+                                pC = !pC;
+                            } else {
+                                $("#pC").slideUp();
+                                pC = !pC;
+                            }
+                    }
+                });
+            }
+        );
+    </script>
+</head>
+<body>
+<div id="container">
+    <div id="divA">
+        <h1 id="h1A">This is an Interesting Headline</h1>
+        <p id="pA">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vestibulum sem quis velit vehicula convallis. Suspendisse potenti. Ut pharetra eu ex nec condimentum. Ut tincidunt dolor sit amet urna rhoncus, vestibulum bibendum mi fermentum. Fusce quis leo nec augue semper tempus. Curabitur sit amet nulla sit amet sapien facilisis condimentum at sit amet quam. Integer id sagittis tortor. Vestibulum maximus ultricies velit at pretium. Duis tempor felis id est ornare cursus. Nunc eu placerat elit. Phasellus nec congue lacus. Nunc vel nibh volutpat, interdum sem eget, scelerisque mauris.</p>
+    </div>
+    <div id="divB">
+        <h1 id="h1B">This is also an Interesting Headline</h1>
+
+        <p id="pB">Integer sit amet sem vitae nulla egestas ultricies in mollis dolor. Nunc felis est, tincidunt ut enim a, congue maximus velit. Fusce ornare risus libero, at feugiat libero volutpat nec. Nunc varius justo in pharetra commodo. Nunc facilisis dolor in ante consectetur laoreet. Maecenas ipsum justo, varius in enim ullamcorper, lacinia porta sapien. Integer dignissim mattis nunc, non laoreet nisi venenatis at. Etiam ac rutrum arcu, rhoncus sollicitudin sapien. Curabitur eleifend nisl quam, vel aliquet lacus tempus ac. Curabitur interdum nisl et gravida dictum. Cras vitae interdum libero, at elementum eros. Integer eget luctus sem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aliquam id nulla eget metus dignissim sollicitudin. Nullam in purus commodo, condimentum purus id, rutrum mauris. Suspendisse scelerisque, ante vel ultricies molestie, lorem leo laoreet arcu, eget suscipit elit sem quis lectus.</p>
+    </div> 
+    <div id="divC">
+        <h1 id="h1C">This Headline is Not So Interesting</h1>
+        <p id="pC">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vestibulum sem quis velit vehicula convallis. Suspendisse potenti. Ut pharetra eu ex nec condimentum. Ut tincidunt dolor sit amet urna rhoncus, vestibulum bibendum mi fermentum. Fusce quis leo nec augue semper tempus. Curabitur sit amet nulla sit amet sapien facilisis condimentum at sit amet quam. Integer id sagittis tortor. Vestibulum maximus ultricies velit at pretium. Duis tempor felis id est ornare cursus. Nunc eu placerat elit. Phasellus nec congue lacus. Nunc vel nibh volutpat, interdum sem eget, scelerisque mauris.</p>
+
+    </div>           
+</div>
+</body>
+</html>

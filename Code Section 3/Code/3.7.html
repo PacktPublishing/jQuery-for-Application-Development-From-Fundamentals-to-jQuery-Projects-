@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3.7: Manipuating CSS</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        #tester{
+            background-color: #fafafa;
+            border: 1px dotted black;
+            width: 600px;
+            padding: 10px;
+        }
+
+        #tester h1{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #tester button {
+            width: 100%;
+            margin-bottom: 5px;
+            background-color: #ff8b00;
+            color: white;
+            padding: 5px;
+            font-weight: bold;
+            font-size: 1.25em;
+        }
+    </style>
+    <script>
+        $(
+            function(){
+                const FONTS = ["Times", "Arial", "Georgia", "Verdana", "Monospace", "Courier"];
+                let currentFont = 0;
+
+                $("button").click(function(e){
+                    btnClicked = e.target.id;
+                    switch(btnClicked){
+                        case "larger":
+                            $("#tester p:last").css("font-size", "+=.1em");
+                            break;
+                        case "smaller":
+                            $("#tester p:last").css("font-size", "-=.1em");
+                            break;
+                        case "nextFont":
+                            if(currentFont < 5){
+                                currentFont++;
+                            } else {
+                                currentFont = 0;
+                            }
+                            $("#tester p:last").css("font-family", FONTS[currentFont]);
+                            break;
+                        case "bold":
+                            $("#tester p:last").css("font-weight", "bold");
+                    }
+                    let out = "Font: " + $("#tester p:last").css("font-family");
+                    out += " Size: " + $("#tester p:last").css("font-size");
+                    $("#cssText").text(out);
+                });
+            }
+        )
+    </script>
+</head>
+<body>
+    <div id="container">
+    <div id="tester">
+        <h1>Type Tester</h1>
+        <p><strong>Original: </strong>The quick brown fox jumped over the lazy dogs.</p>
+        <p><strong>Altered: </strong>The quick brown fox jumped over the lazy dogs.</p>
+        <button id="larger">Larger</button>
+        <button id="smaller">Smaller</button>
+        <button id="nextFont">Change Font</button>
+        <button id="bold">Bold</button>
+        <output id="cssText"></output>
+    </div>
+    </div>
+</body>
+</html>

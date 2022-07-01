@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3.6: Wrapping Elements</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(
+            function(){
+                $("h1").click(function(){
+                    $("h1").wrap("<div id='wrapped'></div>");
+                    $("#more").wrapInner("<div id='wrapped'></div>")
+                });
+            }
+        )
+    </script>
+    <style>
+        #wrapped, #wrapped2{
+            height: 350px;
+            width: 350px;
+            border: 1px dotted black;
+            background-color: lightgoldenrodyellow;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            padding: 20px;
+        }
+
+        #wrapped2{
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+    <h1>A Reminder</h1>
+    <p>Don't wrap me!</p>
+    <div id="more">
+        <h2>Bands</h2>
+        <p>Smashing Pumpkins</p>
+        <p>The Cure</p>
+    </div>
+</body>
+</html>

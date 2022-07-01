@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3.4: Positioning Elements</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #moveMe{
+            background-color: #ff8b00; 
+            width: 200px;
+            height: 200px;
+        }
+
+        #container {
+            margin: 10px;
+        }
+
+        #controls{
+            margin-top: 20px;
+            width: 220px;
+            text-align: center;
+        }
+
+        #controls button{
+            width: 100px;
+            padding: 5px;
+            margin: 5px;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script>
+        $(
+            function(){
+                $("#moveMe").draggable();
+                $("#moveMe").mousemove(getPosition);
+                $("#controls button").click(function(e){
+                    let btn = e.target.childNodes[0].nodeValue;
+                    switch(btn){
+                        case "Up":
+                            $("#moveMe").css("top", "-=10");
+                            break;
+                        case "Down":
+                            $("#moveMe").css("top", "+=10");
+                            break;
+                        case "Left":
+                            $("#moveMe").css("left", "-=10");
+                            break;
+                        case "Right":
+                            $("#moveMe").css("left", "+=10");
+                            break;
+                    }
+                    getPosition();
+                });
+            }
+        );
+
+        function getPosition(){
+            let position = $("#moveMe").position();
+            let posX = position.top;
+            let posY = position.left;
+            let out = "Position X: " + posX + " Y: " + posY;
+            $("#posOut").text(out);
+
+        }
+    </script>
+</head>
+<body>
+    <div id="container">
+        <output id="posOut"></output>
+        <div id="moveMe"></div>
+        <div id="controls">
+            <button>Up</button>
+            <button>Left</button><button>Right</button>
+            <button>Down</button>
+        </div>
+    </div>
+</body>
+</html>

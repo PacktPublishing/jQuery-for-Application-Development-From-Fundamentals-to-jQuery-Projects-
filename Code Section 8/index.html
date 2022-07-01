@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Goal Tracking App</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="Goal.js"></script>
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+        <link href="goals.css" type="text/css" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Start of first page -->
+        <div data-role="page" id="enterGoals">
+
+            <div data-role="header">
+                <h1>Daily Goal Tracker</h1>
+            </div><!-- /header -->
+
+            <div role="main" class="ui-content">
+                <div id="goalsList">
+                </div>
+                <form>
+                <label for="goal">Enter Your Goal</label>
+                <textarea id="goal" data-mini="true" cols="40" rows="6"></textarea>
+               
+                </form>
+                <button id="btnSave">Save My Goal</button>
+                <button id="btnNewDay">New Day (Clear All Goals)</button>
+                <div data-role="popup" id="popupBasic">
+	               <p>Do you want to complete this goal?<p>
+                    <button id="btnComplete" onclick="completeGoal()">Yes</button>
+                    <button id="btnNo" onclick="closeDialog()">No</button>
+                </div>
+            </div><!-- /content -->
+
+            <div data-role="footer" class="footer">
+                <h4>FrameworkTV.com</h4>
+            </div><!-- /footer -->
+        </div><!-- /page -->
+        <script src="goalsJS.js"></script>
+    </body>
+</html>

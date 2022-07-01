@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2.1: Fade in and Fade Out</title>
+    <style>
+        #effectsTargetA {
+            background-color: #2175bc;
+            height: 300px;
+            width: 32%;
+            margin-bottom: 20px;
+            margin-right: 20px;
+            float: left;
+
+        }
+
+        #effectsTargetB {
+            background-color: #c0c0c0;
+            height: 300px;
+            width: 32%;
+            margin-bottom: 20px;
+            margin-right: 20px;
+            float: left;
+        }
+
+        #effectsTargetC {
+            background-color: #ff8b00;
+            height: 300px;
+            width: 32%;
+            margin-bottom: 20px;
+            float: left;
+        }
+
+        button {
+            height: 40px;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .clear {
+            clear: both;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+    $(function(){
+       $("body").click(function(event){
+        let target =event.target.id;
+        console.log(target);
+        switch(target){
+            case "btnEffectBlue":
+                $("#effectsTargetA").hide();
+                break;
+            case "btnEffectGray":
+                $("#effectsTargetB").hide();
+                break;
+            case "btnEffectOrange":
+                $("#effectsTargetC").hide();
+                break;
+            case "btnEffectShowAll":
+                $("#effectsTargetA").show();
+                $("#effectsTargetB").show();
+                $("#effectsTargetC").show();
+        }
+       });
+    });
+
+    </script>
+</head>
+<body>
+<div id="container">
+    <div id="effectsTargetA"></div>
+    <div id="effectsTargetB"></div>
+    <div id="effectsTargetC"></div>
+    <div class="clear"></div>
+    <button id="btnEffectBlue">Hide Blue</button>
+    <button id="btnEffectGray">Hide Gray</button>
+    <button id="btnEffectOrange">Hide Orange</button>
+    <button id="btnEffectShowAll">Show All</button>
+</div>
+</body>
+</html>

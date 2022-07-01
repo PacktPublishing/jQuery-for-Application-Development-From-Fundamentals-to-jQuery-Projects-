@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5.3: Browser Events</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+       #container{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        article h1 {
+            display: flex;
+            justify-content: center;
+        }
+
+    
+
+    </style>
+    <script>
+        $(window).resize(function() {
+            if(this.resizeTO) clearTimeout(this.resizeTO);
+            this.resizeTO = setTimeout(function() {
+            $(this).trigger('resizeEnd');
+            }, 500);
+        });
+
+        $( function(){
+            $(window).resize(function(){
+            $("#westport").fadeOut();
+            });
+
+            $(window).on("resizeEnd", function(){
+                $("#westport").fadeIn();
+            });
+
+            $(window).scroll(function(){
+                if(document.body.scrollTop > 500 || document.documentElement.scrollTop > 500){
+                    $("article").slideUp(5000);
+                }
+            });
+
+        });
+
+        
+    </script>
+</head>
+<body>
+    <div id="container">
+        <img src="westport.png" id="westport" alt="Westport, Connecticut"/>
+        <article>
+            <h1>Westport, Connecticut</h1>
+            <p>Westport's unique character can be traced to the town's roots in the Native American tribes who frequented the area, the five original "Bankside Farmers" who settled what is now known as Green's Farms in 1648, and another group of settlers who followed -- the Coleys, the Wheelers, the Bennetts, the Jennings, the Burrs, the enslaved and free African Americans who labored on the farms, in various trades and on the harbor front, and many more who came after them to shape this nationally-known town.</p>
+
+            <p>Westport's image continues to be special because of the people who live and work here. All of the town's agencies – from the Office of the First Selectman to the Planning and Zoning Commission, the Recreation and Conservation Commissions, to the Representative Town Meeting (the town's grass roots democratic representatives) – collectively work together in the town's best interests. People are often outspoken and they publicly differ, but when a decision is made they come together as a whole for the good of the community.</p>
+                
+            <p>It is also the people who take the time to make sure senior residents can afford to stay in the town, ensuring that Westport retains a key segment of its population. Through the years, Westport has become one of the most affluent suburbs in America, culturally rich, filled with a blend of old Yankee farmers, academics, and professionals from all fields, reflecting its international flavor. Yet, it still retains the old New England small-town charm on many of its streets.</p>
+                
+            <p>It is this dichotomy between affluent suburb and an old New England town that applies to Westport. It is coming to grips with the New Millennium as the town continues to modernize and yet, at the same time, retain its charm. Westport is enjoying great economic growth and success, building and expanding schools to house the town's burgeoning student population, while at the same time working to keep its small-town milieu.</p>
+                
+            <p>Like many other towns in New England, Westport's roots are in the Native Americans who frequented this area years ago. Names such as Saugatuck, meaning mouth of the tidal river, and Compo (Compaug), the bear's fishing ground, come from the early Paugussett tribe.</p>
+                
+            <p>The colonial settlers came from three surrounding towns – Norwalk, Fairfield, and Weston, parts of which comprised Westport. The river was the dividing line between Norwalk and Fairfield, and vital to farmers as a pathway to markets for their produce. A small community of wharves, warehouses, stores and a tavern grew up on both sides of the river to become the Village of Saugatuck. The first church built in Westport was the Green's Farms Congregational Church, in 1711, and it served as the focal point of all town activities, from running the schools to collecting the taxes. Churches of all faiths eventually blossomed in Westport to make it a truly interfaith community.</p>
+                
+            <p>During the Revolutionary War, battle broke out during the British raid on Danbury. Some 1,850 British soldiers landed on Compo Beach on April 25, 1777, and marched up Compo Road, burning homesteads and barns as they went. After a battle at Ridgefield, the British returned through the village of Saugatuck and fought the local militia in a battle at Compo Hill. The Minute Man statue commemorates this event. The bodies of the colonists killed in this fight are interred at Compo Beach cemetery.</p>
+                
+            <p>After the Revolutionary War, the Village of Saugatuck began to grow as a shipping center. In the 1830s, Daniel Nash, a leading resident, together with 130 other villagers made an application to the Connecticut General Assembly to incorporate Westport as a town. The nature of the economy with its emphasis on onion farming and coastal shipping influenced the decision. The charter was granted May 28, 1835.</p>
+                
+            <p>Shipping was at its height at this time, but the steam locomotive engine was not far off. The first railroad track was opened Dec. 27, 1848. The second track was laid in 1853, but not until the 1890s were the present tracks completed. The railroad and the community in general was built with the arrival of immigrants from Ireland, Italy, and numerous other European countries – people of all faiths and all cultural backgrounds, many of whom are still residing here today.</p>
+                
+            <p>By the end of the 19th century, there were mills and factories, Kemper's Tannery (the present Westport Country Playhouse) and Toquet Manufacturing Company. Around 1910, artists discovered Westport and the town was literally turned into a nationally known beehive of cultural activity; the Famous Artists School and the Famous Writers School were both built here, attracting talent from all over America.</p>
+                
+            <p>There followed an influx of creative people from many fields that made this area their permanent home. In 30 years, the population doubled to 8,000. Since World War II, the population floodgates opened, more than tripling the previous high by 1970. Today, there are some 25,700 residents here year- round. Novels, plays, and movies have been produced at the famous landmark, the Westport Country Playhouse, with Westport as their back-drops; actors, actresses, writers, artists, architects, lawyers, doctors, corporate executives and political figures have made this town their home.</p>
+                
+            <p>One of the major reasons for the town's cosmopolitan nature is that Westporters have a real sense of place. Perhaps most impressive is the high caliber of the great number of people who participate in the community, either as elected officials or as volunteers. The spirit and care with which people tend to this town is what gives it its very heart and soul.</p>
+                
+            <p>All of which is why The Westport Museum for History and Culture maintains its mission: "The Westport Museum for History and Culture strives to inspire the holistic discovery of our town’s history inclusive of our collective heritage and its place in the larger American story."</p>
+        </article>
+    </div>
+</body>
+</html>
